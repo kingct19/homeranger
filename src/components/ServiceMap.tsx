@@ -29,8 +29,8 @@ export function ServiceMap({ points }: { points: MapPoint[] }) {
 
     void import("leaflet").then((leaflet) => {
       if (cancelled || !containerRef.current || mapRef.current) return;
-      const loaded = leaflet as typeof leaflet & { default?: typeof leaflet };
-      const L = typeof loaded.map === "function" ? loaded : loaded.default;
+      const wrapped = leaflet as unknown as { default?: typeof leaflet };
+      const L = typeof leaflet.map === "function" ? leaflet : wrapped.default;
       if (!L) return;
       const map = L.map(containerRef.current, {
         scrollWheelZoom: false,
