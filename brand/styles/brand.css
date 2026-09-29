@@ -1,0 +1,17 @@
+/* Load your licensed Monument Extended and Inter font files separately. */
+:root {
+ --hr-navy:#0A2C5A; --hr-orange:#FF7A00; --hr-steel:#6B7280;
+ --hr-storm:#D1D5DB; --hr-white:#FFFFFF; --hr-surface:#F6F8FB;
+ --hr-display:"Monument Extended","Arial Black",Arial,sans-serif;
+ --hr-body:Inter,Arial,sans-serif; --hr-radius:16px; --hr-max:1200px;
+}
+.hr-heading{font-family:var(--hr-display);font-weight:800;line-height:1.08;letter-spacing:-.035em}
+.hr-body{font-family:var(--hr-body);line-height:1.6;color:var(--hr-navy)}
+.hr-button{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 1.5rem;min-height:48px;border:2px solid transparent;border-radius:8px;background:var(--hr-orange);color:var(--hr-navy);font:700 1rem var(--hr-body);text-decoration:none;cursor:pointer}
+.hr-button:hover{background:#FF952F}
+.hr-button--secondary{background:transparent;border-color:currentColor;color:var(--hr-navy)}
+.hr-button:focus-visible,a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
+.hr-card{padding:2rem;border:1px solid var(--hr-storm);border-radius:var(--hr-radius);background:white}
+.hr-container{width:min(calc(100% - 40px),var(--hr-max));margin-inline:auto}
+.hr-icon{width:32px;height:32px;color:var(--hr-navy)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}

@@ -1,0 +1,144 @@
+[
+  {
+    "path": "README.md",
+    "bytes": 1385
+  },
+  {
+    "path": "asset-preview.html",
+    "bytes": 4195
+  },
+  {
+    "path": "docs/ASSET-NOTES.md",
+    "bytes": 1805
+  },
+  {
+    "path": "docs/BRAND-GUIDE.md",
+    "bytes": 3224
+  },
+  {
+    "path": "docs/BUILD-PROMPT.md",
+    "bytes": 1856
+  },
+  {
+    "path": "docs/GENERATION-PROMPTS.md",
+    "bytes": 1664
+  },
+  {
+    "path": "icons/air-quality.svg",
+    "bytes": 242
+  },
+  {
+    "path": "icons/arrow-right.svg",
+    "bytes": 199
+  },
+  {
+    "path": "icons/calendar.svg",
+    "bytes": 269
+  },
+  {
+    "path": "icons/check.svg",
+    "bytes": 192
+  },
+  {
+    "path": "icons/community.svg",
+    "bytes": 276
+  },
+  {
+    "path": "icons/cooling.svg",
+    "bytes": 299
+  },
+  {
+    "path": "icons/heating.svg",
+    "bytes": 262
+  },
+  {
+    "path": "icons/installation.svg",
+    "bytes": 263
+  },
+  {
+    "path": "icons/maintenance.svg",
+    "bytes": 217
+  },
+  {
+    "path": "icons/phone.svg",
+    "bytes": 251
+  },
+  {
+    "path": "icons/repairs.svg",
+    "bytes": 244
+  },
+  {
+    "path": "icons/shield-check.svg",
+    "bytes": 243
+  },
+  {
+    "path": "icons/sprite.svg",
+    "bytes": 2832
+  },
+  {
+    "path": "logos/favicon.svg",
+    "bytes": 376
+  },
+  {
+    "path": "logos/home-ranger-primary.png",
+    "bytes": 54084,
+    "width": 2000,
+    "height": 840,
+    "mode": "RGBA"
+  },
+  {
+    "path": "logos/home-ranger-primary.svg",
+    "bytes": 5039
+  },
+  {
+    "path": "logos/home-ranger-reversed.png",
+    "bytes": 46061,
+    "width": 2000,
+    "height": 840,
+    "mode": "RGBA"
+  },
+  {
+    "path": "logos/home-ranger-reversed.svg",
+    "bytes": 5039
+  },
+  {
+    "path": "mascot/home-ranger-technician.png",
+    "bytes": 1389656,
+    "width": 1312,
+    "height": 1199,
+    "mode": "RGBA"
+  },
+  {
+    "path": "patterns/roofline.svg",
+    "bytes": 231
+  },
+  {
+    "path": "references/general-brand-board.png",
+    "bytes": 2568367,
+    "width": 1312,
+    "height": 1199,
+    "mode": "RGBA"
+  },
+  {
+    "path": "references/hvac-brand-board.png",
+    "bytes": 2611424,
+    "width": 1312,
+    "height": 1199,
+    "mode": "RGBA"
+  },
+  {
+    "path": "references/mascot-concept-board.png",
+    "bytes": 2745235,
+    "width": 1122,
+    "height": 1402,
+    "mode": "RGBA"
+  },
+  {
+    "path": "styles/brand.css",
+    "bytes": 1375
+  },
+  {
+    "path": "styles/tokens.json",
+    "bytes": 529
+  }
+]
