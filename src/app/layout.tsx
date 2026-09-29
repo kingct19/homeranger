@@ -12,8 +12,14 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const metadataBase = new URL(
+  process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : site.url,
+);
+
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase,
   title: {
     default: "Home Ranger Services | HVAC in Dallas and Austin",
     template: "%s | Home Ranger Services",
