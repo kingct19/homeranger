@@ -1,65 +1,65 @@
 const photos: Record<string, { src: string; alt: string }> = {
   "air-conditioning": {
-    src: "/photos/condenser-kneel.jpg",
-    alt: "Technician kneeling at an outdoor condenser",
+    src: "/photos/outdoor-inspect.jpg",
+    alt: "Technician inspecting an outdoor air conditioner beside a house",
   },
   "ac-repair": {
-    src: "/photos/condenser-kneel.jpg",
-    alt: "Technician kneeling at an outdoor condenser",
+    src: "/photos/rooftop-gauges.jpg",
+    alt: "Technician checking refrigerant gauges on a rooftop air conditioner",
   },
   "ac-installation": {
-    src: "/photos/roof-tech.jpg",
-    alt: "Technician beside an open rooftop air conditioner",
+    src: "/photos/rooftop-panel.jpg",
+    alt: "Technician working inside an open rooftop air conditioner",
   },
   "ac-maintenance": {
-    src: "/photos/hero-close.jpg",
-    alt: "Technician installing a filter in an air handler",
+    src: "/photos/indoor-service.jpg",
+    alt: "Technician servicing an indoor air conditioner",
   },
   heating: {
-    src: "/photos/attic-blue-duct.jpg",
-    alt: "Technician securing insulated ductwork in an attic",
+    src: "/photos/thermostat-hand.jpg",
+    alt: "Hand adjusting a home thermostat",
   },
   "furnace-repair": {
-    src: "/photos/hands-wiring.jpg",
-    alt: "Technician working on equipment wiring",
+    src: "/photos/manifold-gauges.jpg",
+    alt: "Technician reading manifold gauges during a service call",
   },
   "furnace-replacement": {
-    src: "/photos/attic-metal.jpg",
-    alt: "Technician among metal ducts in an attic",
+    src: "/photos/coil-repair.jpg",
+    alt: "Technician testing an air conditioner coil",
   },
   "heat-pumps": {
-    src: "/photos/roof-tech.jpg",
-    alt: "Technician beside an open rooftop air conditioner",
+    src: "/photos/wall-unit-garden.jpg",
+    alt: "Outdoor air conditioner mounted beside a garden wall",
   },
   "ductless-mini-splits": {
-    src: "/photos/wall-cavity.jpg",
-    alt: "Technicians installing equipment in an open wall",
+    src: "/photos/wall-unit.jpg",
+    alt: "Wall-mounted outdoor air conditioner",
   },
   "indoor-air-quality": {
-    src: "/photos/attic-metal.jpg",
-    alt: "Technician among metal ducts in an attic",
+    src: "/photos/thermostat.jpg",
+    alt: "Wall thermostat in a home",
   },
   "duct-services": {
-    src: "/photos/attic-blue-duct.jpg",
-    alt: "Technician securing insulated ductwork in an attic",
+    src: "/photos/yard-unit.jpg",
+    alt: "Outdoor air conditioning system in a yard",
   },
   "commercial-hvac": {
-    src: "/photos/hands-wiring.jpg",
-    alt: "Technician working on equipment wiring",
+    src: "/photos/condenser-row.jpg",
+    alt: "Row of outdoor air conditioning units",
   },
   "maintenance-plans": {
-    src: "/photos/hero-close.jpg",
-    alt: "Technician installing a filter in an air handler",
+    src: "/photos/indoor-service.jpg",
+    alt: "Technician servicing an indoor air conditioner",
   },
   "home-sale-inspections": {
-    src: "/photos/homeowner-visit.jpg",
-    alt: "Technician reviewing a visit with a homeowner beside an outdoor unit",
+    src: "/photos/thermostat-home.jpg",
+    alt: "Homeowner adjusting a thermostat",
   },
 };
 
 const fallback = {
-  src: "/photos/hero-close.jpg",
-  alt: "Technician installing a filter in an air handler",
+  src: "/photos/outdoor-inspect.jpg",
+  alt: "Technician inspecting an outdoor air conditioner beside a house",
 };
 
 export function servicePhoto(slug: string) {

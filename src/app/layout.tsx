@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
 import { CtaActions } from "@/components/CtaActions";
+import { PageTransition } from "@/components/PageTransition";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/content/site";
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} data-scroll-behavior="smooth">
       <body className="overflow-x-clip bg-paper pb-28 font-sans text-ink antialiased lg:pb-0">
         <a
           href="#content"
@@ -44,7 +45,9 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           Skip to content
         </a>
         <SiteHeader />
-        <main id="content">{children}</main>
+        <main id="content">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <SiteFooter />
         <div className="fixed inset-x-0 bottom-0 z-40 box-border w-full max-w-[100vw] border-t border-line bg-paper p-3 lg:hidden">
           <CtaActions

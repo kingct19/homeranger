@@ -8,7 +8,7 @@ const headerLabels = ["Air Conditioning", "Heating", "Service Areas", "About"];
 
 function Chevron() {
   return (
-    <svg viewBox="0 0 12 8" className="ml-1 inline-block h-2 w-2" aria-hidden="true">
+    <svg viewBox="0 0 12 8" className="nav-chevron ml-1 inline-block h-2 w-2" aria-hidden="true">
       <path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="currentColor" strokeWidth="1.6" />
     </svg>
   );
@@ -49,7 +49,7 @@ function NavEntry({ item }: { item: NavItem }) {
       </Link>
       {item.links ? (
         <div
-          className={`invisible absolute top-full z-20 w-64 border border-line bg-white py-2 opacity-0 shadow-xl transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 ${
+          className={`nav-menu w-64 border border-line bg-white py-2 shadow-xl ${
             item.align === "right" ? "right-0" : "left-0"
           }`}
         >
@@ -65,7 +65,7 @@ function NavEntry({ item }: { item: NavItem }) {
         </div>
       ) : null}
       {item.columns ? (
-        <div className="invisible absolute right-0 top-full z-20 grid w-[40rem] grid-cols-2 gap-4 border border-line bg-white p-5 opacity-0 shadow-xl transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+        <div className="nav-menu right-0 grid w-[40rem] grid-cols-2 gap-4 border border-line bg-white p-5 shadow-xl">
           {item.columns.map((column) => (
             <div key={column.title}>
               <p className="kicker text-orange">{column.title}</p>

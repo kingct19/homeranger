@@ -82,7 +82,7 @@ export function HeroReel() {
         autoPlay
         muted
         playsInline
-        poster="/photos/hero-close.jpg"
+        poster="/photos/outdoor-inspect.jpg"
         aria-label={label}
         onEnded={() => {
           if (slotRef.current === 0) advance();
@@ -96,7 +96,7 @@ export function HeroReel() {
         muted
         playsInline
         preload="auto"
-        poster="/photos/roof-tech.jpg"
+        poster="/photos/rooftop-repair.jpg"
         onEnded={() => {
           if (slotRef.current === 1) advance();
         }}

@@ -15,7 +15,7 @@ function Chevron({ expanded }: { expanded: boolean }) {
   return (
     <svg
       viewBox="0 0 12 8"
-      className={`h-2.5 w-3 transition-transform ${expanded ? "rotate-180" : ""}`}
+      className={`h-2.5 w-3 transition-transform duration-200 ease-out ${expanded ? "rotate-180" : ""}`}
       aria-hidden="true"
     >
       <path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="currentColor" strokeWidth="1.6" />
@@ -47,11 +47,11 @@ function MobileNavMenu({ items }: { items: NavItem[] }) {
           </svg>
         )}
       </button>
-      {open ? (
-        <div
-          id="mobile-menu"
-          className="absolute inset-x-0 top-full z-50 max-h-[82vh] overflow-auto border-b border-line bg-paper px-5 py-6 text-center shadow-xl"
-        >
+      <div
+        id="mobile-menu"
+        inert={open ? undefined : true}
+        className={`mobile-menu absolute inset-x-0 top-full z-50 max-h-[82vh] overflow-auto border-b border-line bg-paper px-5 py-6 text-center shadow-xl ${open ? "is-open" : ""}`}
+      >
           <nav aria-label="Mobile">
             {items.map((item) => {
               const children = item.links ?? item.columns?.flatMap((column) => column.links) ?? [];
@@ -77,8 +77,8 @@ function MobileNavMenu({ items }: { items: NavItem[] }) {
                       <span />
                     )}
                   </div>
-                  {expanded ? (
-                    <ul className="grid gap-1 pb-3 text-center">
+                  <div className={`reveal ${expanded ? "is-open" : ""}`}>
+                    <ul className="reveal-inner grid gap-1 pb-3 text-center">
                       {item.columns
                         ? item.columns.map((column) => (
                             <li key={column.title}>
@@ -102,7 +102,7 @@ function MobileNavMenu({ items }: { items: NavItem[] }) {
                             </li>
                           ))}
                     </ul>
-                  ) : null}
+                  </div>
                 </div>
               );
             })}
@@ -112,8 +112,7 @@ function MobileNavMenu({ items }: { items: NavItem[] }) {
             callClassName="btn btn-primary w-full"
             scheduleClassName="btn btn-line w-full"
           />
-        </div>
-      ) : null}
+      </div>
     </div>
   );
 }

@@ -10,7 +10,7 @@ export function CtaBand({
 }) {
   return (
     <section className="relative overflow-hidden bg-navy text-white">
-      <Image src="/photos/condenser-kneel.jpg" alt="" fill className="object-cover" sizes="100vw" />
+      <Image src="/photos/outdoor-inspect.jpg" alt="" fill className="object-cover" sizes="100vw" />
       <div className="absolute inset-0 bg-navy/70" />
       <div className="relative mx-auto max-w-[1200px] px-5 py-14 text-center md:py-24">
         <h2 className="display text-4xl text-white md:text-5xl">{title}</h2>

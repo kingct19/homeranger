@@ -62,13 +62,13 @@ export default function AboutPage() {
 
       <section className="bg-white">
         <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 py-14 lg:grid-cols-2 lg:py-20">
-          <div className="relative min-h-80 overflow-hidden lg:min-h-[460px]">
+          <div className="flex min-h-80 items-end justify-center lg:min-h-[460px]">
             <Image
-              src="/photos/homeowner-visit.jpg"
-              alt="Technician talking with a homeowner beside an outdoor unit"
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 50vw, 100vw"
+              src="/brand/mascot/home-ranger-technician.png"
+              alt=""
+              width={1312}
+              height={1199}
+              className="h-auto w-full max-w-md"
             />
           </div>
           <div className="space-y-5 text-lg leading-relaxed text-mute">
@@ -107,8 +107,8 @@ export default function AboutPage() {
           </div>
           <div className="relative min-h-80 overflow-hidden lg:order-2 lg:min-h-[460px]">
             <Image
-              src="/photos/roof-tech.jpg"
-              alt="Technician working inside an open rooftop air conditioner"
+              src="/photos/rooftop-repair.jpg"
+              alt="Technician repairing an open rooftop air conditioner"
               fill
               className="object-cover"
               sizes="(min-width: 1024px) 50vw, 100vw"
@@ -153,12 +153,12 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-            <WorkVideo src="/videos/roof-service.mp4" poster="/photos/roof-tech.jpg" label="Watch a rooftop visit" />
+            <WorkVideo src="/videos/roof-service.mp4" poster="/photos/rooftop-repair.jpg" label="Watch a rooftop visit" />
           </div>
           <div className="relative min-h-72 overflow-hidden lg:min-h-[420px]">
             <Image
-              src="/photos/condenser-kneel.jpg"
-              alt="Technician kneeling at an outdoor condenser"
+              src="/photos/rooftop-gauges.jpg"
+              alt="Technician checking refrigerant gauges on a rooftop air conditioner"
               fill
               className="object-cover"
               sizes="(min-width: 1024px) 40vw, 100vw"

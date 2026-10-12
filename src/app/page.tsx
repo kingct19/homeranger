@@ -5,7 +5,6 @@ import { CtaActions } from "@/components/CtaActions";
 import { CtaBand } from "@/components/CtaBand";
 import { HeroReel } from "@/components/HeroReel";
 import { JsonLd } from "@/components/JsonLd";
-import { WorkVideo } from "@/components/WorkVideo";
 import { newsPosts } from "@/content/blog";
 import { cities } from "@/content/cities";
 import { coordinatesFor } from "@/content/city-coordinates";
@@ -19,42 +18,42 @@ const services: { href: string; title: string; icon: BrandIconName; image: strin
     href: servicePath("air-conditioning"),
     title: "Air Conditioning",
     icon: "cooling",
-    image: "/photos/condenser-kneel.jpg",
+    image: "/photos/outdoor-inspect.jpg",
     body: "Repair and replacement for houses that have to cool through a long Texas summer.",
   },
   {
     href: servicePath("heat-pumps"),
     title: "Heat Pumps",
     icon: "heating",
-    image: "/photos/roof-tech.jpg",
+    image: "/photos/outdoor-unit.jpg",
     body: "Heating and cooling in one system, sized for the house, with backup heat checked before winter.",
   },
   {
     href: servicePath("heating"),
     title: "Heating Repairs",
     icon: "heating",
-    image: "/photos/attic-blue-duct.jpg",
+    image: "/photos/indoor-service.jpg",
     body: "Furnace and heat-pump fixes, with the price in writing before any work starts.",
   },
   {
     href: servicePath("indoor-air-quality"),
     title: "Indoor Air Quality",
     icon: "air-quality",
-    image: "/photos/attic-metal.jpg",
+    image: "/photos/thermostat.jpg",
     body: "Filters, humidity, and the returns that actually move air through the house.",
   },
   {
     href: servicePath("ductless-mini-splits"),
     title: "Ductless Systems",
     icon: "installation",
-    image: "/photos/wall-cavity.jpg",
+    image: "/photos/wall-unit.jpg",
     body: "Room-by-room comfort for older houses and additions that should not be opened up for new ducts.",
   },
   {
     href: servicePath("commercial-hvac"),
     title: "Commercial HVAC",
     icon: "repairs",
-    image: "/photos/hands-wiring.jpg",
+    image: "/photos/condenser-row.jpg",
     body: "Light commercial repair and maintenance. We show up when we said we would.",
   },
 ];
@@ -158,8 +157,8 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-[1200px] items-center gap-8 px-5 py-12 lg:grid-cols-2 lg:gap-10 lg:py-24">
           <div className="relative order-2 h-64 overflow-hidden bg-navy sm:h-80 lg:order-1 lg:h-auto lg:min-h-[420px]">
             <Image
-              src="/photos/roof-tech.jpg"
-              alt="Technician working inside an open rooftop air conditioner"
+              src="/photos/rooftop-repair.jpg"
+              alt="Technician repairing an open rooftop air conditioner"
               fill
               className="object-cover"
               sizes="(min-width: 1024px) 50vw, 100vw"
@@ -170,7 +169,6 @@ export default function HomePage() {
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-mute">
               Home Ranger Services works in Dallas–Fort Worth and Greater Austin. The visit is the same in both: show up when we said we would, name the problem in plain language, and recommend only the work the house needs.
             </p>
-            <WorkVideo src="/videos/roof-service.mp4" poster="/photos/roof-tech.jpg" label="Watch video" />
           </div>
         </div>
       </section>
@@ -211,8 +209,8 @@ export default function HomePage() {
         </div>
         <div className="relative mt-6 min-h-[28rem] lg:mt-8 lg:min-h-[520px]">
           <Image
-            src="/photos/homeowner-visit.jpg"
-            alt="Technician talking with a homeowner beside an outdoor unit"
+            src="/photos/thermostat-home.jpg"
+            alt="Homeowner adjusting a thermostat"
             fill
             className="object-cover"
             sizes="100vw"
@@ -324,7 +322,7 @@ export default function HomePage() {
               <article key={post.slug}>
                 <Link href={postPath(post.slug)} className="relative block aspect-[16/10]">
                   <Image
-                    src={index === 0 ? "/photos/attic-blue-duct.jpg" : "/photos/condenser-kneel.jpg"}
+                    src={index === 0 ? "/photos/thermostat.jpg" : "/photos/street-unit.jpg"}
                     alt=""
                     fill
                     className="object-cover"
