@@ -7,11 +7,11 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Privacy Policy",
   description:
-    "How the Home Ranger Services website handles information you send us. The contact form opens your email app. We do not store it on the site.",
+    "How the Home Ranger Services website handles information you send us. The contact form emails the office. We do not store it in a site database.",
   path: "/privacy",
 });
 
-const updated = "October 12, 2026";
+const updated = "October 13, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -36,10 +36,10 @@ export default function PrivacyPage() {
           The contact form asks for your name, phone number, email address, city, the kind of help you need, and a short description. A career note asks for the same fields, with the message used for experience and the metro you want.
         </p>
         <p className="mt-3">
-          Submitting the form does not save that information on this website. It opens your email application with the note addressed to {site.email}. You send the email yourself. After that, it is ordinary email between you and the office. If the mail app does not open, nothing has been sent until you write us directly.
+          Submitting the form sends that note by email to {site.email}, and sends a short confirmation to the email address you entered. The site does not keep a database of form entries. After it arrives, it is ordinary email between you and the office. If sending fails, nothing has been delivered until you call or write us directly.
         </p>
         <p className="mt-3">
-          Do not include card numbers, bank account numbers, Social Security numbers, or other sensitive financial information in that message. Financing, if you choose it, is an application with a lender. That lender’s privacy policy covers the application, not this page.
+          Do not include card numbers, bank account numbers, Social Security numbers, or other sensitive financial information in that message.
         </p>
 
         <h2 className="mt-10 font-serif text-2xl text-navy">Information the host may log</h2>
@@ -69,16 +69,15 @@ export default function PrivacyPage() {
         <p className="mt-3">We share information only as needed to do the thing you asked for:</p>
         <ul className="mt-3 list-disc space-y-2 pl-5">
           <li>The people at Home Ranger Services who schedule and perform the work.</li>
-          <li>Your email provider and ours, because that is how the message travels.</li>
+          <li>The email service that delivers the form to our inbox, and the email providers on both ends.</li>
           <li>The company that hosts the website, for the technical logs described above.</li>
-          <li>A lender, only if you choose to apply, and then under that lender’s process.</li>
           <li>A public authority, if the law requires us to provide a record.</li>
         </ul>
         <p className="mt-3">We do not sell, rent, or trade personal information.</p>
 
         <h2 className="mt-10 font-serif text-2xl text-navy">How long it stays</h2>
         <p className="mt-3">
-          Because the form never stores a submission on the site, there is no website database entry to delete. Email we actually receive is kept long enough to answer you, do the work, and meet ordinary business and tax record needs. Hosting logs are kept for the period the host uses for operations and security.
+          The form does not create a website database entry. Email we actually receive is kept long enough to answer you, do the work, and meet ordinary business and tax record needs. Hosting logs are kept for the period the host uses for operations and security.
         </p>
 
         <h2 className="mt-10 font-serif text-2xl text-navy">Children</h2>

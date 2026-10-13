@@ -73,21 +73,6 @@ const steps = [
   },
 ];
 
-const standards = [
-  {
-    title: "The repair that fits",
-    body: "A failed part is quoted as a repair when the rest of the system is sound. Replacement is a separate price, shown beside it when that is a real choice.",
-  },
-  {
-    title: "It gets written down",
-    body: "Findings, model numbers, and the price you approved are on the paperwork. You should not have to reconstruct the visit from memory.",
-  },
-  {
-    title: "The house is respected",
-    body: "Shoe covers, a clear path to the equipment, and a clean work area are part of the job.",
-  },
-];
-
 const areaHighlights = [
   "dallas",
   "fort-worth",
@@ -258,51 +243,6 @@ export default function HomePage() {
               </Link>
             </article>
           </div>
-        </div>
-      </section>
-
-      <section className="bg-white">
-        <div className="mx-auto max-w-[1240px] px-5 py-12 lg:py-20">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <h2 className="display max-w-3xl text-4xl md:text-[44px]">Real customers. Real experiences.</h2>
-            <Link href="/reviews" className="btn btn-primary">
-              More reviews
-            </Link>
-          </div>
-          <p className="mt-4 max-w-2xl text-mute">
-            We publish comments after the job, in the customer’s words. Until those are here, this is the standard a visit is supposed to meet.
-          </p>
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {standards.map((item) => (
-              <article key={item.title} className="flex min-h-72 flex-col border border-line p-6">
-                <h3 className="text-xl font-semibold">{item.title}</h3>
-                <p className="mt-4 flex-1 leading-relaxed text-mute">{item.body}</p>
-                <p className="mt-6 text-sm font-semibold">Home Ranger standard</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-navy text-white">
-        <div className="mx-auto max-w-[1100px] px-5 py-12 text-center lg:py-20">
-          <h2 className="display text-4xl md:text-[44px]">Easy financing to fit your budget</h2>
-          <div className="mt-12 grid gap-8 text-left md:grid-cols-3">
-            {[
-              ["Many financing options", "On qualifying replacements we explain the payment choices available that day. A simple part is priced as a repair."],
-              ["Easy application", "You see the job price first. A monthly payment does not change what the work includes."],
-              ["Get started now", "Ask when you book. The lender sets the rate and the term. We do not invent a number on this page."],
-            ].map(([title, body]) => (
-              <div key={title}>
-                <span className="grid h-9 w-9 place-items-center rounded-full border border-white text-sm">✓</span>
-                <h3 className="mt-4 text-xl font-semibold">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">{body}</p>
-              </div>
-            ))}
-          </div>
-          <Link href="/financing" className="btn btn-primary mt-12">
-            Get started
-          </Link>
         </div>
       </section>
 

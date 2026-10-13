@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { submitInquiry } from "@/app/contact/actions";
 import { site } from "@/content/site";
 
 type Option = { value: string; label: string };
+type Status = "idle" | "sending" | "sent" | "error";
 
 export function ContactForm({
   cities,
@@ -14,29 +16,33 @@ export function ContactForm({
   services: Option[];
   topic?: string;
 }) {
-  const [started, setStarted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [error, setError] = useState("");
   const career = topic === "careers";
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const lines = [
-      career ? "Career inquiry" : "Service request",
-      `Name: ${String(data.get("name") ?? "")}`,
-      `Phone: ${String(data.get("phone") ?? "")}`,
-      `Email: ${String(data.get("email") ?? "")}`,
-      `City: ${String(data.get("city") ?? "")}`,
-      `Service: ${String(data.get("service") ?? "")}`,
-      "",
-      String(data.get("message") ?? ""),
-    ];
-    const subject = career ? "Career inquiry" : "Service request";
-    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
-    setStarted(true);
+    setStatus("sending");
+    setError("");
+    const result = await submitInquiry(new FormData(event.currentTarget));
+    if (result.ok) {
+      setStatus("sent");
+      event.currentTarget.reset();
+      return;
+    }
+    setStatus("error");
+    setError(result.error);
   }
 
   return (
-    <form onSubmit={onSubmit} className="panel p-6 md:p-8">
+    <form onSubmit={onSubmit} className="panel relative p-6 md:p-8">
+      <input type="hidden" name="topic" value={career ? "careers" : "service"} />
+      <div className="absolute -left-[9999px] h-0 overflow-hidden" aria-hidden="true">
+        <label>
+          Company website
+          <input name="company" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
       {career ? (
         <p className="mb-5 rounded-xl bg-cream px-4 py-3 text-sm leading-relaxed">
           This note goes to the office as a career inquiry. Tell us which metro you want to work in and the license you hold or are working toward.
@@ -120,17 +126,20 @@ export function ContactForm({
           />
         </label>
       </div>
-      <button type="submit" className="btn btn-primary mt-6">
-        Send by email
+      <button type="submit" className="btn btn-primary mt-6" disabled={status === "sending"}>
+        {status === "sending" ? "Sending" : "Send"}
       </button>
       <p className="mt-3 text-sm leading-relaxed text-mute">
-        This opens your email app with the note addressed to {site.email}. We do not store the form on the website.
+        This sends the note to {site.email}. It is a request, not a booked appointment, until we confirm one.
       </p>
-      {started ? (
-        <p className="mt-3 text-sm font-semibold text-leaf">
-          If your email app did not open, write us directly at {site.email}.
-        </p>
-      ) : null}
+      <div aria-live="polite">
+        {status === "sent" ? (
+          <p className="mt-3 text-sm font-semibold text-leaf">
+            Received. We will reply at the email you entered, or call the number you gave us.
+          </p>
+        ) : null}
+        {status === "error" ? <p className="mt-3 text-sm font-semibold text-navy">{error}</p> : null}
+      </div>
     </form>
   );
 }

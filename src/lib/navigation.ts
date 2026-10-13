@@ -93,9 +93,6 @@ export function mainNav(): NavItem[] {
       align: "right",
       links: [
         { label: "About Us", href: "/about" },
-        { label: "Reviews", href: "/reviews" },
-        { label: "Financing", href: "/financing" },
-        { label: "Promotions", href: "/promotions" },
         { label: "FAQ", href: "/faq" },
         { label: "HVAC Terminology", href: "/hvac-terminology" },
         { label: "Careers", href: "/careers" },
@@ -136,9 +133,6 @@ export const serviceGroups: { title: string; slugs: string[] }[] = [
 
 export const companyLinks: NavLink[] = [
   { label: "About", href: "/about" },
-  { label: "Financing", href: "/financing" },
-  { label: "Promotions", href: "/promotions" },
-  { label: "Reviews", href: "/reviews" },
   { label: "FAQ", href: "/faq" },
   { label: "Terminology", href: "/hvac-terminology" },
   { label: "Careers", href: "/careers" },

@@ -21,7 +21,6 @@ const sidebarServices = [
 const resources = [
   { label: "About Us", href: "/about" },
   { label: "Blog", href: "/blog" },
-  { label: "Financing", href: "/financing" },
   { label: "FAQ", href: "/faq" },
 ];
 

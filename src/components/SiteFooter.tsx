@@ -30,9 +30,15 @@ export function SiteFooter() {
           <p className="mt-8 max-w-xs text-sm leading-relaxed text-white/70">
             Dallas–Fort Worth and Greater Austin
           </p>
+          {site.phoneDisplay ? (
+            <a href={`tel:${site.phoneTel}`} className="mt-3 block text-sm text-white/80">
+              {site.phoneDisplay}
+            </a>
+          ) : null}
           <a href={`mailto:${site.email}`} className="mt-3 block text-sm text-white/80">
             {site.email}
           </a>
+          <p className="mt-3 text-sm text-white/70">{site.hours}</p>
           <p className="mt-6 text-sm text-white/70">
             {site.license ? `License #${site.license}` : "Ask us for our Texas ACR license before work begins."}
           </p>

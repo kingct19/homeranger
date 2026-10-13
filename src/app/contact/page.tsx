@@ -23,7 +23,7 @@ export default async function ContactPage({ searchParams }: Props) {
       <PageHero
         eyebrow="Contact"
         title={topic === "careers" ? "Talk with us about a job" : "Tell us what the system is doing"}
-        description="Share the city, a phone number, and a short description. The form opens an email to the office so the request does not sit in an unseen inbox on the website."
+        description="Share the city, a phone number, and a short description. The form sends that note to the office."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Contact" },
@@ -51,6 +51,7 @@ export default async function ContactPage({ searchParams }: Props) {
           ) : (
             <p>A phone number will appear here once it is added to the site settings.</p>
           )}
+          <p>Open {site.hours}.</p>
           <p>We schedule Dallas–Fort Worth and Greater Austin as separate routes. Include the city so the window we offer is a real one.</p>
           <p>If you smell gas or see sparking, shut the system off and contact your gas utility or an emergency line. Do not wait on a routine email.</p>
         </aside>

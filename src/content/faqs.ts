@@ -11,7 +11,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "How do I book a visit?",
-    a: "Use the contact form with your city, the system that is down, and a phone number. It opens an email to our office so the request is not sitting in an unseen form. If we have a live phone number posted in the header, you can call that too.",
+    a: "Use the contact form with your city, the system that is down, and a phone number. That note goes to the office. You can also call the number posted on the site.",
   },
   {
     q: "Do you charge a diagnostic fee?",
@@ -28,10 +28,6 @@ export const faqs: Faq[] = [
   {
     q: "Will you show me a license and insurance?",
     a: "Ask for the Texas Air Conditioning and Refrigeration Contractor license and the insurance certificate when you book. Both should be available before anyone works in the house. If a license number is posted on this site, it is the number we want you to check.",
-  },
-  {
-    q: "Do you offer financing?",
-    a: "On qualifying replacements we can explain payment options that are available at the time, including third-party financing. The lender sets the terms. A repair such as a capacitor is not usually a financing project, and we will not pretend it is.",
   },
   {
     q: "How soon can you get here in a heat wave?",

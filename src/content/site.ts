@@ -6,8 +6,9 @@ export const site = {
   name: "Home Ranger Services",
   url: "https://homerangerservices.com",
   email: "service@homerangerservices.com",
-  phoneTel: "",
-  phoneDisplay: "",
+  phoneTel: "19137306587",
+  phoneDisplay: "(913) 730-6587",
+  hours: "8 a.m.–7 p.m.",
   license: "",
   description:
     "Home Ranger Services repairs, maintains, and replaces heating and cooling systems for homes and small businesses in Dallas–Fort Worth and Greater Austin.",

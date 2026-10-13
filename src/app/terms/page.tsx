@@ -11,7 +11,7 @@ export const metadata: Metadata = pageMeta({
   path: "/terms",
 });
 
-const updated = "October 12, 2026";
+const updated = "October 13, 2026";
 
 export default function TermsPage() {
   return (
@@ -53,14 +53,9 @@ export default function TermsPage() {
           City pages describe where we schedule work. Listing a city is not a promise that every request is accepted, or that it is accepted the same day. We confirm a window when we accept the request. If that window changes, we tell you.
         </p>
 
-        <h2 className="mt-10 font-serif text-2xl text-navy">Financing</h2>
-        <p className="mt-3">
-          Payment options, when they are available, are for qualifying replacements or large repairs. Approval, rate, and term come from the lender, not from this website. We do not publish a rate here. Applying is a separate step with that lender, under that lender’s terms. A payment plan does not change the scope you approved.
-        </p>
-
         <h2 className="mt-10 font-serif text-2xl text-navy">Messages you send</h2>
         <p className="mt-3">
-          The contact form does not create an account and it does not store the note on this website. Submitting it opens your email application with a message addressed to {site.email}. Sending that email is a request for us to reply. It is not a booked appointment until we confirm one.
+          The contact form does not create an account and it does not store the note in a database on this website. Submitting it emails the note to {site.email}. That email is a request for us to reply. It is not a booked appointment until we confirm one.
         </p>
         <p className="mt-3">
           Do not put card numbers, bank details, Social Security numbers, or other sensitive financial information in that email. How we handle the message is described in the{" "}
