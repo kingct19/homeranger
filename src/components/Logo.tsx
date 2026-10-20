@@ -10,10 +10,10 @@ export function Logo({ tone = "dark" }: { tone?: "dark" | "light" }) {
       <Image
         src={src}
         alt="Home Ranger Services"
-        width={943}
-        height={528}
+        width={1024}
+        height={682}
         priority={tone === "dark"}
-        className="h-auto w-[118px] sm:w-[150px] lg:w-[190px]"
+        className="h-auto w-[84px] sm:w-[96px] lg:w-[112px]"
       />
     </Link>
   );

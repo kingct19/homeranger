@@ -276,10 +276,3 @@ body {
 summary::-webkit-details-marker {
   display: none;
 }
-
-@media (max-width: 1023px) {
-  chat-widget {
-    bottom: 5.75rem !important;
-    z-index: 45;
-  }
-}

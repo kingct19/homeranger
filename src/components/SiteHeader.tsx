@@ -23,15 +23,15 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-black/5 bg-white">
       <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-4 px-4 py-2 lg:justify-start lg:gap-6 lg:px-5 lg:py-3">
         <Logo />
-        <nav className="ml-auto hidden items-center lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
           {items.map((item) => (
             <NavEntry key={item.href} item={item} />
           ))}
-          <Link href="/contact" className="px-3 py-4 text-[15px] text-[#2b2b2b] hover:text-black">
+          <Link href="/contact" className="inline-flex items-center px-3 py-4 text-[15px] text-[#2b2b2b] hover:text-black">
             Contact Us
           </Link>
         </nav>
-        <CtaActions className="ml-2 hidden gap-3 lg:flex" scheduleClassName="btn btn-line" />
+        <CtaActions className="ml-4 hidden gap-3 lg:flex" scheduleClassName="btn btn-line" />
         <MobileNav items={[...items, { label: "Contact Us", href: "/contact" }]} />
       </div>
     </header>
@@ -65,7 +65,7 @@ function NavEntry({ item }: { item: NavItem }) {
         </div>
       ) : null}
       {item.columns ? (
-        <div className="nav-menu right-0 grid w-[40rem] grid-cols-2 gap-4 border border-line bg-white p-5 shadow-xl">
+        <div className="nav-menu left-0 grid w-[40rem] grid-cols-2 gap-4 border border-line bg-white p-5 shadow-xl">
           {item.columns.map((column) => (
             <div key={column.title}>
               <p className="kicker text-orange">{column.title}</p>

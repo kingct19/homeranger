@@ -40,7 +40,7 @@ export default async function OpenGraphImage() {
             padding: "0 40px 0 72px",
           }}
         >
-          <img src={dataUrl(logo)} width={320} height={179} alt="" />
+          <img src={dataUrl(logo)} width={300} height={200} alt="" />
           <div
             style={{
               display: "flex",
