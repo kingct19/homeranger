@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaqList } from "@/components/FaqList";
 import { PageHero } from "@/components/PageHero";
 import { nearbyCities } from "@/content/cities";
-import { regions } from "@/content/site";
+import { regions, site } from "@/content/site";
 import { locationServices, relatedServices } from "@/content/services";
 import type { City, Service } from "@/content/types";
 import { fill, issuesFor, locationFaqs } from "@/lib/content";
@@ -97,9 +97,9 @@ export function LocationArticle({ city, service }: { city: City; service: Servic
               <p className="kicker text-apricot">{city.name}</p>
               <p className="mt-3 font-serif text-2xl">{service.shortName}</p>
               <p className="mt-3 text-sm leading-relaxed text-cream/75">{city.signature}</p>
-              <Link href="/contact" className="btn btn-primary mt-5">
-                Book in {city.name}
-              </Link>
+              <a href={site.bookingUrl} className="btn btn-primary mt-5">
+                Book
+              </a>
             </div>
             <div className="panel p-5">
               <p className="kicker text-leaf">Also in {city.name}</p>

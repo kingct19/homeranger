@@ -11,7 +11,7 @@ export const metadata: Metadata = pageMeta({
   path: "/privacy",
 });
 
-const updated = "October 13, 2026";
+const updated = "October 15, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -52,7 +52,7 @@ export default function PrivacyPage() {
 
         <h2 className="mt-10 font-serif text-2xl text-navy">Cookies and analytics</h2>
         <p className="mt-3">
-          This site does not set advertising cookies and it does not include a third-party analytics product. Your browser may still store ordinary technical data a host needs to deliver the page. If we add analytics or advertising later, we will say so here before we rely on it.
+          This site does not set advertising cookies and it does not include a third-party analytics product. A chat button on the page is provided by LeadConnector. If you use it, what you type is sent to that service so the office can reply. Your browser may still store ordinary technical data a host needs to deliver the page.
         </p>
 
         <h2 className="mt-10 font-serif text-2xl text-navy">How we use a message</h2>
@@ -71,6 +71,7 @@ export default function PrivacyPage() {
           <li>The people at Home Ranger Services who schedule and perform the work.</li>
           <li>The email service that delivers the form to our inbox, and the email providers on both ends.</li>
           <li>The company that hosts the website, for the technical logs described above.</li>
+          <li>LeadConnector, if you use the chat button, for the messages you send there.</li>
           <li>A public authority, if the law requires us to provide a record.</li>
         </ul>
         <p className="mt-3">We do not sell, rent, or trade personal information.</p>

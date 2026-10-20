@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
+import { ChatWidget } from "@/components/ChatWidget";
 import { CtaActions } from "@/components/CtaActions";
 import { PageTransition } from "@/components/PageTransition";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           <PageTransition>{children}</PageTransition>
         </main>
         <SiteFooter />
+        <ChatWidget />
         <div className="fixed inset-x-0 bottom-0 z-40 box-border w-full max-w-[100vw] border-t border-line bg-paper p-3 lg:hidden">
           <CtaActions
             className="cta-bar"

@@ -8,6 +8,8 @@ export const site = {
   email: "service@homerangerservices.com",
   phoneTel: "19137306587",
   phoneDisplay: "(913) 730-6587",
+  bookingUrl:
+    "https://book.housecallpro.com/book/Home-Ranger-Services/d658c4f56ca1480b88f57e41de32b52d?v2=true",
   hours: "8 a.m.–7 p.m.",
   license: "",
   description:

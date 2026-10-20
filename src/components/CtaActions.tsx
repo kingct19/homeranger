@@ -6,7 +6,7 @@ export function CtaActions({
   className = "flex flex-wrap gap-3",
   callClassName = "btn btn-primary",
   scheduleClassName = "btn btn-light",
-  scheduleLabel = "Schedule Appointment",
+  scheduleLabel = "Book",
 }: {
   className?: string;
   callClassName?: string;
@@ -24,9 +24,9 @@ export function CtaActions({
           <span className="min-w-0 text-balance">Call Us</span>
         </Link>
       )}
-      <Link href="/contact" className={scheduleClassName}>
+      <a href={site.bookingUrl} className={scheduleClassName}>
         <span className="min-w-0 text-balance">{scheduleLabel}</span>
-      </Link>
+      </a>
     </div>
   );
 }
