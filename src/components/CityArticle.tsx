@@ -53,8 +53,9 @@ export function CityArticle({ city }: { city: City }) {
               src={photo.src}
               alt={photo.alt}
               fill
-              priority
-              sizes="(min-width: 1024px) 860px, 100vw"
+              preload
+              fetchPriority="high"
+              sizes="(min-width: 1024px) 860px, calc(100vw - 2.5rem)"
               className="object-cover"
             />
           </div>

@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 export function HeroVideo({
   src,
@@ -12,6 +13,7 @@ export function HeroVideo({
   label: string;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const video = ref.current;
@@ -22,17 +24,31 @@ export function HeroVideo({
   }, []);
 
   return (
-    <video
-      ref={ref}
-      className="absolute inset-0 h-full w-full object-cover"
-      autoPlay
-      muted
-      loop
-      playsInline
-      poster={poster}
-      aria-label={label}
-    >
-      <source src={src} type="video/mp4" />
-    </video>
+    <>
+      {poster ? (
+        <Image
+          src={poster}
+          alt=""
+          fill
+          preload
+          fetchPriority="high"
+          sizes="100vw"
+          className={`object-cover transition-opacity duration-500 ${ready ? "opacity-0" : "opacity-100"}`}
+        />
+      ) : null}
+      <video
+        ref={ref}
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${poster && !ready ? "opacity-0" : "opacity-100"}`}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-label={label}
+        onPlaying={() => setReady(true)}
+      >
+        <source src={src} type="video/mp4" />
+      </video>
+    </>
   );
 }

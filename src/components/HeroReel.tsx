@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 const clips = [
   {
@@ -56,6 +57,34 @@ export function HeroReel() {
   const slotRef = useRef(0);
   const [slot, setSlot] = useState(0);
   const [label, setLabel] = useState(clips[0].label);
+  const [ready, setReady] = useState(false);
+  const [mountVideo, setMountVideo] = useState(false);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let timerId: ReturnType<typeof setTimeout> | undefined;
+
+    const start = () => setMountVideo(true);
+
+    if (document.readyState === "complete") {
+      timerId = setTimeout(start, 2500);
+      return () => {
+        if (timerId !== undefined) clearTimeout(timerId);
+      };
+    }
+
+    const onLoad = () => {
+      timerId = setTimeout(start, 2500);
+    };
+    window.addEventListener("load", onLoad, { once: true });
+
+    return () => {
+      window.removeEventListener("load", onLoad);
+      if (timerId !== undefined) {
+        clearTimeout(timerId);
+      }
+    };
+  }, []);
 
   function advance() {
     const outgoing = slotRef.current === 0 ? firstRef.current : secondRef.current;
@@ -74,35 +103,63 @@ export function HeroReel() {
     setLabel(clip.label);
   }
 
+  function prepareNext(currentIndex: number) {
+    const nextSlot = slotRef.current === 0 ? 1 : 0;
+    const nextVideo = nextSlot === 0 ? firstRef.current : secondRef.current;
+    const nextClip = clips[(currentIndex + 1) % clips.length];
+    if (nextVideo && !nextVideo.getAttribute("src")) {
+      nextVideo.src = nextClip.src;
+      nextVideo.preload = "metadata";
+    }
+  }
+
   return (
     <>
-      <video
-        ref={firstRef}
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${slot === 0 ? "opacity-100" : "opacity-0"}`}
-        autoPlay
-        muted
-        playsInline
-        poster="/photos/outdoor-inspect.jpg"
-        aria-label={label}
-        onEnded={() => {
-          if (slotRef.current === 0) advance();
-        }}
-      >
-        <source src={clips[0].src} type="video/mp4" />
-      </video>
-      <video
-        ref={secondRef}
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${slot === 1 ? "opacity-100" : "opacity-0"}`}
-        muted
-        playsInline
-        preload="auto"
-        poster="/photos/rooftop-repair.jpg"
-        onEnded={() => {
-          if (slotRef.current === 1) advance();
-        }}
-      >
-        <source src={clips[1].src} type="video/mp4" />
-      </video>
+      <Image
+        src="/photos/outdoor-inspect.jpg"
+        alt=""
+        fill
+        preload
+        fetchPriority="high"
+        sizes="100vw"
+        className={`object-cover transition-opacity duration-700 ${ready ? "opacity-0" : "opacity-100"}`}
+      />
+      {mountVideo ? (
+        <>
+          <video
+            ref={firstRef}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${ready && slot === 0 ? "opacity-100" : "opacity-0"}`}
+            autoPlay
+            muted
+            playsInline
+            preload="metadata"
+            aria-label={label}
+            onPlaying={() => {
+              setReady(true);
+              prepareNext(indexRef.current);
+            }}
+            onEnded={() => {
+              if (slotRef.current === 0) advance();
+            }}
+          >
+            <source src={clips[0].src} type="video/mp4" />
+          </video>
+          <video
+            ref={secondRef}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${ready && slot === 1 ? "opacity-100" : "opacity-0"}`}
+            muted
+            playsInline
+            preload="none"
+            aria-hidden="true"
+            onPlaying={() => {
+              prepareNext(indexRef.current);
+            }}
+            onEnded={() => {
+              if (slotRef.current === 1) advance();
+            }}
+          />
+        </>
+      ) : null}
     </>
   );
 }

@@ -54,7 +54,7 @@ function HubHero({ service }: { service: Service }) {
   const photo = servicePhoto(service.slug);
   return (
     <section className="relative min-h-[560px] bg-navy text-white">
-      <Image src={photo.src} alt={photo.alt} fill priority className="object-cover" sizes="100vw" />
+      <Image src={photo.src} alt={photo.alt} fill preload fetchPriority="high" className="object-cover" sizes="100vw" />
       <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/80 to-navy/25" />
       <div className="relative mx-auto flex min-h-[560px] max-w-[1240px] items-end px-5 py-14">
         <div className="max-w-2xl">
@@ -85,14 +85,28 @@ function HubGrid({ service, links }: { service: Service; links: NavLink[] }) {
             return (
               <li key={link.href}>
                 <article>
-                  <Link href={link.href} className="relative block aspect-[16/10] overflow-hidden">
-                    <Image src={photo.src} alt={photo.alt} fill className="object-cover" sizes="(min-width: 1024px) 33vw, 100vw" />
+                  <Link
+                    href={link.href}
+                    aria-label={link.label}
+                    className="relative block aspect-[16/10] overflow-hidden"
+                  >
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 1280px) 368px, (min-width: 1024px) 31vw, (min-width: 640px) 48vw, calc(100vw - 2.5rem)"
+                    />
                   </Link>
                   <h3 className="mt-4 text-2xl font-bold text-navy">
                     <Link href={link.href}>{link.label}</Link>
                   </h3>
                   <p className="mt-2 leading-relaxed text-mute">{child?.outcome ?? "A separate visit, with the price in writing before any work starts."}</p>
-                  <Link href={link.href} className="learn-more mt-3">
+                  <Link
+                    href={link.href}
+                    aria-label={`Learn more about ${link.label}`}
+                    className="learn-more mt-3"
+                  >
                     Learn more <span aria-hidden="true">&gt;</span>
                   </Link>
                 </article>
@@ -139,14 +153,14 @@ function SplitOpen({
   const light = tone === "light";
   const photoPane = (
     <div className={`relative h-80 lg:h-auto lg:min-h-[640px] ${photoFirst ? "" : "lg:order-2"}`}>
-      <Image src={photo.src} alt={photo.alt} fill priority className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
+      <Image src={photo.src} alt={photo.alt} fill preload fetchPriority="high" className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
     </div>
   );
   const copyPane = (
     <div className={`flex items-center px-5 py-12 lg:px-14 ${panelClassName} ${photoFirst ? "" : "lg:order-1"}`}>
       <div className="max-w-xl">
         <Breadcrumbs items={crumbsFor(service)} tone={tone} />
-        <p className="kicker mt-6 text-orange">{service.shortName}</p>
+        <p className={`kicker mt-6 ${light ? "text-orange" : "text-copper"}`}>{service.shortName}</p>
         <h1 className={`display mt-3 text-4xl md:text-5xl ${light ? "text-white" : "text-navy"}`}>{service.headline}</h1>
         <p className={`mt-4 text-lg leading-relaxed ${light ? "text-white/80" : "text-mute"}`}>{service.description}</p>
         <CtaActions
@@ -171,12 +185,12 @@ function OverlapOpen({ service }: { service: Service }) {
   return (
     <section className="bg-white">
       <div className="relative h-[420px] lg:h-[520px]">
-        <Image src={photo.src} alt={photo.alt} fill priority className="object-cover" sizes="100vw" />
+        <Image src={photo.src} alt={photo.alt} fill preload fetchPriority="high" className="object-cover" sizes="100vw" />
       </div>
       <div className="mx-auto max-w-[1240px] px-5">
         <div className="relative z-10 -mt-28 max-w-2xl bg-white p-8 shadow-xl lg:-mt-36 lg:p-10">
           <Breadcrumbs items={crumbsFor(service)} />
-          <p className="kicker mt-6 text-orange">{service.shortName}</p>
+          <p className="kicker mt-6 text-copper">{service.shortName}</p>
           <h1 className="display mt-3 text-4xl text-navy md:text-5xl">{service.headline}</h1>
           <p className="mt-4 text-lg leading-relaxed text-mute">{service.description}</p>
           <CtaActions
@@ -198,7 +212,7 @@ function CenteredOpen({ service }: { service: Service }) {
         <div className="flex justify-center">
           <Breadcrumbs items={crumbsFor(service)} />
         </div>
-        <p className="kicker mt-6 text-orange">{service.shortName}</p>
+        <p className="kicker mt-6 text-copper">{service.shortName}</p>
         <h1 className="display mt-3 text-4xl text-navy md:text-6xl">{service.headline}</h1>
         <p className="mt-4 text-lg leading-relaxed text-mute">{service.description}</p>
         <CtaActions
@@ -209,7 +223,7 @@ function CenteredOpen({ service }: { service: Service }) {
       </div>
       <div className="mx-auto max-w-[1100px] px-5 pb-4">
         <div className="relative aspect-[21/9] min-h-48">
-          <Image src={photo.src} alt={photo.alt} fill priority className="object-cover" sizes="(min-width: 1100px) 1100px, 100vw" />
+          <Image src={photo.src} alt={photo.alt} fill preload fetchPriority="high" className="object-cover" sizes="(min-width: 1100px) 1100px, 100vw" />
         </div>
       </div>
     </section>
@@ -243,7 +257,7 @@ function ServiceStory({ service }: { service: Service }) {
         <ol className="mt-8 divide-y divide-line border-y border-line">
           {service.signs.map((sign, index) => (
             <li key={sign.title} className="grid gap-3 py-6 sm:grid-cols-[auto_1fr] sm:gap-6">
-              <span className="text-sm font-bold tracking-wide text-orange">0{index + 1}</span>
+              <span className="text-sm font-bold tracking-wide text-copper">0{index + 1}</span>
               <div>
                 <h3 className="text-xl font-bold text-navy">{sign.title}</h3>
                 <p className="mt-2 leading-relaxed text-mute">{sign.body}</p>
@@ -256,7 +270,7 @@ function ServiceStory({ service }: { service: Service }) {
         <ol className="mt-8 grid gap-4 md:grid-cols-2">
           {service.checks.map((check, index) => (
             <li key={check} className="border border-line p-5">
-              <span className="text-sm font-bold text-orange">0{index + 1}</span>
+              <span className="text-sm font-bold text-copper">0{index + 1}</span>
               <p className="mt-2 leading-relaxed">{check}</p>
             </li>
           ))}
@@ -266,7 +280,7 @@ function ServiceStory({ service }: { service: Service }) {
         <ol className="mt-8 grid gap-8">
           {service.process.map((step, index) => (
             <li key={step.title}>
-              <span className="text-sm font-bold tracking-wide text-orange">STEP 0{index + 1}</span>
+              <span className="text-sm font-bold tracking-wide text-copper">STEP 0{index + 1}</span>
               <h3 className="mt-2 text-2xl font-bold text-navy">{step.title}</h3>
               <p className="mt-2 leading-relaxed text-mute">{step.body}</p>
             </li>
@@ -323,13 +337,13 @@ function ServiceCities({ service }: { service: Service }) {
         <div className="mt-8 grid gap-10 md:grid-cols-2">
           {regions.map((region) => (
             <div key={region.id}>
-              <h3 className="text-sm font-bold uppercase tracking-wide text-orange">{region.label}</h3>
+              <h3 className="text-sm font-bold uppercase tracking-wide text-copper">{region.label}</h3>
               <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
                 {citiesIn(region.id).map((city) => (
                   <li key={city.slug}>
                     <Link
                       href={service.locationPage ? locationPath(city.slug, service.slug) : cityPath(city.slug)}
-                      className="text-lg hover:text-orange"
+                      className="text-lg hover:text-copper"
                     >
                       {city.name}
                     </Link>

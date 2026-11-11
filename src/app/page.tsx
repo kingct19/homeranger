@@ -131,7 +131,7 @@ export default function HomePage() {
               alt=""
               width={1312}
               height={1199}
-              priority
+              sizes="(min-width: 1024px) 512px, 1px"
               className="absolute bottom-0 right-5 w-full max-w-lg translate-y-4 drop-shadow-2xl"
             />
           </div>
@@ -146,7 +146,7 @@ export default function HomePage() {
               alt="Technician repairing an open rooftop air conditioner"
               fill
               className="object-cover"
-              sizes="(min-width: 1024px) 50vw, 100vw"
+              sizes="(min-width: 1280px) 560px, (min-width: 1024px) 48vw, calc(100vw - 2.5rem)"
             />
           </div>
           <div className="order-1 lg:order-2">
@@ -169,17 +169,35 @@ export default function HomePage() {
           <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 lg:mt-12 lg:grid-cols-3 lg:gap-8">
             {services.map((service) => (
               <article key={service.href}>
-                <Link href={service.href} className="relative block aspect-[4/3] overflow-hidden">
-                  <Image src={service.image} alt="" fill className="object-cover" sizes="(min-width: 1024px) 33vw, 100vw" />
+                <Link
+                  href={service.href}
+                  aria-label={service.title}
+                  className="relative block aspect-[4/3] overflow-hidden"
+                >
+                  <Image
+                    src={service.image}
+                    alt=""
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1280px) 368px, (min-width: 1024px) 31vw, 46vw"
+                  />
                 </Link>
                 <div className="mt-4 flex items-center gap-3 text-white">
                   <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white">
                     <BrandIcon name={service.icon} />
                   </span>
-                  <h3 className="text-base font-bold leading-tight lg:text-2xl">{service.title}</h3>
+                  <h3 className="text-base font-bold leading-tight lg:text-2xl">
+                    <Link href={service.href} className="hover:underline">
+                      {service.title}
+                    </Link>
+                  </h3>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-white/75 lg:mt-3 lg:text-base">{service.body}</p>
-                <Link href={service.href} className="learn-more mt-4 text-white">
+                <Link
+                  href={service.href}
+                  aria-label={`Learn more about ${service.title}`}
+                  className="learn-more mt-4 text-white"
+                >
                   Learn more <span aria-hidden="true">&gt;</span>
                 </Link>
               </article>
@@ -204,7 +222,7 @@ export default function HomePage() {
             <ol className="w-full max-w-md rounded-2xl bg-white p-5 shadow-xl lg:p-8">
               {steps.map((step, index) => (
                 <li key={step.title} className={index < steps.length - 1 ? "mb-7" : ""}>
-                  <span className="text-sm font-bold tracking-wide text-orange">STEP 0{index + 1}</span>
+                  <span className="text-sm font-bold tracking-wide text-copper">STEP 0{index + 1}</span>
                   <h3 className="mt-2 text-2xl font-bold text-navy">{step.title}</h3>
                   <p className="mt-2 leading-relaxed text-mute">{step.body}</p>
                 </li>
@@ -216,7 +234,7 @@ export default function HomePage() {
 
       <section className="bg-[#eef3f6]">
         <div className="mx-auto max-w-[1100px] px-5 py-12 text-center lg:py-20">
-          <p className="kicker text-orange">Maintenance plans</p>
+          <p className="kicker text-copper">Maintenance plans</p>
             <h2 className="display mx-auto mt-4 max-w-3xl text-4xl text-navy md:text-[44px]">
             HVAC maintenance for homes and businesses
           </h2>
@@ -260,16 +278,20 @@ export default function HomePage() {
           <div className="mt-10 grid gap-8 md:grid-cols-2">
             {newsPosts.map((post, index) => (
               <article key={post.slug}>
-                <Link href={postPath(post.slug)} className="relative block aspect-[16/10]">
+                <Link
+                  href={postPath(post.slug)}
+                  aria-label={post.title}
+                  className="relative block aspect-[16/10]"
+                >
                   <Image
                     src={index === 0 ? "/photos/thermostat.jpg" : "/photos/street-unit.jpg"}
                     alt=""
                     fill
                     className="object-cover"
-                    sizes="(min-width: 768px) 50vw, 100vw"
+                    sizes="(min-width: 1280px) 584px, (min-width: 768px) 48vw, calc(100vw - 2.5rem)"
                   />
                 </Link>
-                <p className="mt-4 text-sm font-semibold uppercase tracking-wide text-orange">
+                <p className="mt-4 text-sm font-semibold uppercase tracking-wide text-copper">
                   {post.source?.name}
                 </p>
                 <h3 className="mt-2 text-2xl font-semibold leading-snug">
@@ -278,7 +300,11 @@ export default function HomePage() {
                 <p className="mt-3 leading-relaxed text-mute">{post.description}</p>
                 <div className="mt-4 flex items-center justify-between text-sm text-mute">
                   <time dateTime={post.date}>{formatDate(post.date)}</time>
-                  <Link href={postPath(post.slug)} className="learn-more text-sm">
+                  <Link
+                    href={postPath(post.slug)}
+                    aria-label={`Read the brief: ${post.title}`}
+                    className="learn-more text-sm"
+                  >
                     Read the brief <span aria-hidden="true">&gt;</span>
                   </Link>
                 </div>
@@ -295,7 +321,7 @@ export default function HomePage() {
             <ul className="grid gap-x-10 sm:grid-cols-2">
               {highlighted.map((city) => (
                 <li key={city.slug}>
-                  <Link href={cityPath(city.slug)} className="flex items-center gap-3 border-b border-black/5 py-3 text-lg hover:text-orange">
+                  <Link href={cityPath(city.slug)} className="flex items-center gap-3 border-b border-black/5 py-3 text-lg hover:text-copper">
                     <span className="grid h-8 w-8 place-items-center rounded-full bg-navy text-white" aria-hidden="true">
                       <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
                         <path

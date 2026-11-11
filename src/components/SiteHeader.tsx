@@ -68,7 +68,7 @@ function NavEntry({ item }: { item: NavItem }) {
         <div className="nav-menu left-0 grid w-[40rem] grid-cols-2 gap-4 border border-line bg-white p-5 shadow-xl">
           {item.columns.map((column) => (
             <div key={column.title}>
-              <p className="kicker text-orange">{column.title}</p>
+              <p className="kicker text-copper">{column.title}</p>
               <ul className="mt-3 max-h-80 space-y-1 overflow-auto">
                 {column.links.map((link) => (
                   <li key={link.href}>

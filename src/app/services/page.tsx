@@ -53,14 +53,28 @@ export default function ServicesPage() {
                 return (
                   <li key={`${group.title}-${slug}`}>
                     <article>
-                      <Link href={servicePath(service.slug)} className="relative block aspect-[16/10] overflow-hidden">
-                        <Image src={photo.src} alt={photo.alt} fill className="object-cover" sizes="(min-width: 1024px) 33vw, 100vw" />
+                      <Link
+                        href={servicePath(service.slug)}
+                        aria-label={service.name}
+                        className="relative block aspect-[16/10] overflow-hidden"
+                      >
+                        <Image
+                          src={photo.src}
+                          alt={photo.alt}
+                          fill
+                          className="object-cover"
+                          sizes="(min-width: 1280px) 368px, (min-width: 1024px) 31vw, (min-width: 768px) 48vw, calc(100vw - 2.5rem)"
+                        />
                       </Link>
                       <h3 className="mt-4 text-2xl font-bold text-navy">
                         <Link href={servicePath(service.slug)}>{service.name}</Link>
                       </h3>
                       <p className="mt-2 leading-relaxed text-mute">{service.outcome}</p>
-                      <Link href={servicePath(service.slug)} className="learn-more mt-3">
+                      <Link
+                        href={servicePath(service.slug)}
+                        aria-label={`Learn more about ${service.name}`}
+                        className="learn-more mt-3"
+                      >
                         Learn more <span aria-hidden="true">&gt;</span>
                       </Link>
                     </article>

@@ -52,7 +52,7 @@ export default function AboutPage() {
               { label: "About" },
             ]}
           />
-          <p className="kicker mt-8 text-orange">About Home Ranger Services</p>
+          <p className="kicker mt-8 text-copper">About Home Ranger Services</p>
           <h1 className="display mt-3 text-4xl text-navy md:text-6xl">Who we are</h1>
           <p className="mt-5 text-lg leading-relaxed text-mute">
             Home Ranger Services works in Dallas–Fort Worth and Greater Austin. The standard is the same in both: show up when we said we would, explain the problem in plain language, and recommend only the work the house needs.
@@ -68,6 +68,7 @@ export default function AboutPage() {
               alt=""
               width={1312}
               height={1199}
+              sizes="(min-width: 640px) 448px, calc(100vw - 2.5rem)"
               className="h-auto w-full max-w-md"
             />
           </div>
@@ -119,7 +120,7 @@ export default function AboutPage() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-[1200px] px-5 py-14 lg:py-20">
-          <p className="kicker text-orange">Our values</p>
+          <p className="kicker text-copper">Our values</p>
           <h2 className="display mt-3 max-w-3xl text-4xl text-navy md:text-5xl">The values that drive the visit</h2>
           <ul className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {values.map((value) => (

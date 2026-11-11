@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Map as LeafletMap } from "leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -18,10 +18,33 @@ const pinColor = {
 } as const;
 
 export function ServiceMap({ points }: { points: MapPoint[] }) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<LeafletMap | null>(null);
+  const [visible, setVisible] = useState(
+    () => typeof window !== "undefined" && typeof IntersectionObserver === "undefined",
+  );
 
   useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper || visible || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" },
+    );
+    observer.observe(wrapper);
+
+    return () => observer.disconnect();
+  }, [visible]);
+
+  useEffect(() => {
+    if (!visible) return;
     const container = containerRef.current;
     if (!container || mapRef.current) return;
 
@@ -44,11 +67,15 @@ export function ServiceMap({ points }: { points: MapPoint[] }) {
       const markers = points.map((point) => {
         const icon = L.divIcon({
           className: "service-pin",
-          html: `<span style="display:block;width:16px;height:16px;border-radius:9999px;background:${pinColor[point.region]};border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.45)"></span>`,
-          iconSize: [16, 16],
-          iconAnchor: [8, 8],
+          html: `<span style="display:grid;width:24px;height:24px;place-items:center"><span style="display:block;width:14px;height:14px;border-radius:9999px;background:${pinColor[point.region]};border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.45)"></span></span>`,
+          iconSize: [24, 24],
+          iconAnchor: [12, 12],
         });
-        const marker = L.marker([point.lat, point.lng], { icon, title: point.name }).addTo(map);
+        const marker = L.marker([point.lat, point.lng], {
+          icon,
+          title: point.name,
+          keyboard: false,
+        }).addTo(map);
         marker.bindPopup(
           `<a href="/service-areas/${point.slug}" style="font-weight:600;color:#111">${point.name}</a>`,
         );
@@ -69,10 +96,10 @@ export function ServiceMap({ points }: { points: MapPoint[] }) {
       mapRef.current?.remove();
       mapRef.current = null;
     };
-  }, [points]);
+  }, [points, visible]);
 
   return (
-    <div className="relative z-0 overflow-hidden bg-[#d7e4ea]">
+    <div ref={wrapperRef} className="relative z-0 overflow-hidden bg-[#d7e4ea]">
       <div ref={containerRef} className="h-[320px] w-full lg:h-[520px]" role="region" aria-label="Map of Home Ranger service cities" />
       <div className="flex flex-wrap items-center gap-5 bg-white px-4 py-3 text-sm">
         <span className="inline-flex items-center gap-2">

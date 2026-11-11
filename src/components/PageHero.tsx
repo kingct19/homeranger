@@ -28,7 +28,7 @@ export function PageHero({
       ) : null}
       {image && !video ? (
         <>
-          <Image src={image.src} alt={image.alt} fill priority className="object-cover" sizes="100vw" />
+          <Image src={image.src} alt={image.alt} fill preload fetchPriority="high" className="object-cover" sizes="100vw" />
           <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/75 to-navy/35" />
         </>
       ) : null}
@@ -43,7 +43,7 @@ export function PageHero({
           scheduleClassName="btn btn-light w-full sm:w-auto"
         />
         {image && !video ? (
-          <p className="mt-6 text-xs text-white/60">
+          <p className="mt-6 text-xs text-white/75">
             Photo:{" "}
             <a href={image.href} className="underline">
               {image.credit}

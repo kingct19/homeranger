@@ -69,7 +69,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-[1240px] flex-col items-center gap-3 px-5 py-5 text-center text-sm text-white/50 sm:flex-row sm:justify-between sm:text-left">
+        <div className="mx-auto flex max-w-[1240px] flex-col items-center gap-3 px-5 py-5 text-center text-sm text-white/70 sm:flex-row sm:justify-between sm:text-left">
           <p>© {new Date().getFullYear()} Home Ranger Services</p>
           <p className="flex gap-4">
             <Link href="/privacy" className="hover:text-white">
